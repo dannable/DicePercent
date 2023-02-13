@@ -11,9 +11,11 @@ def rolld100():
     penaltyDice = int(input('Any penalty dice?[0]') or "0")
     resultDice = abs(bonusDice - penaltyDice) + 1
 
+    # Roll the ones die
     d2 = random.randint(0,9)
     
-
+    # Determine if bonus or penalty dice are to be rolled and roll the appropriate number of dice
+    
     if bonusDice > penaltyDice:
         # Determine and print the number of Bonus dice to roll
         print('Rolling d100 with ' + str(resultDice -1) + ' bonus dice.\n')
@@ -32,6 +34,8 @@ def rolld100():
   
         for i in range(resultDice):
             tens_die_roll = random.randint(0,9)
+            if d2 == 0 and tens_die_roll == 0:
+                tens_die_roll =100 
             print('Tens die ' + str(i+1) + ': ' + str(tens_die_roll))
             tens_die_rolls.append(tens_die_roll)
             d1 = min(tens_die_rolls)
